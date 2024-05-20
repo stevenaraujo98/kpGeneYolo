@@ -1,0 +1,8 @@
+*.avi
+*.pt
+predictionYolo
+__pycache__
+*.mp4
+runs
+Videos
+dataCalibrated
