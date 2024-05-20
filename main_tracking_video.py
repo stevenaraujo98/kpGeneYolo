@@ -12,6 +12,17 @@ import os
 # model = YOLO('yolov8m-pose.pt')
 model = YOLO('yolov8x-pose-p6.pt')
 
+# # Train the model using the 'coco128.yaml' dataset for 3 epochs
+# results = model.train(data='coco128.yaml', epochs=3)
+
+# # Evaluate the model's performance on the validation set
+# results = model.val()
+
+# Perform object detection on an image using the model
+# results = model('https://ultralytics.com/images/bus.jpg', show=True, conf=0.3, save=True)
+# results = model(source=0, show=True, conf=0.3, save=True)
+
+
 list_colors = [(255,0,255), (0, 255, 255), (255, 0, 0), (0, 0, 0), (255, 255, 0), (205, 92, 92), (255, 0, 255), (0, 128, 128), (128, 0, 0), (128, 128, 0), (128, 128, 128)]
 
 def graph_circles(array_pts, w, h, frame):

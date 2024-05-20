@@ -39,6 +39,46 @@ def graph_box(box, img):
 # model = YOLO('yolov8m-pose.pt')
 model = YOLO('yolov8x-pose-p6.pt')
 
+"""
+img = cv2.imread("./bus.jpg")
+
+# if you want all classes
+yolo_classes = list(model.names.values())
+classes_ids = [yolo_classes.index(clas) for clas in yolo_classes]
+
+conf = 0.65
+
+results = model.predict(img, conf=conf, classes=[0])
+colors = [random.choices(range(256), k=3) for _ in classes_ids]
+
+# colors = [random.choices(range(256), k=3) for _ in classes_ids]
+
+
+def graph_box(box, img):
+    box = np.array(box.data.cpu())[0]
+    print((box[0], box[1]), (box[2], box[3]), box[4])
+    box = box.astype(int)
+    cv2.rectangle(img, (box[0], box[1]), (box[2], box[3]), (0, 255, 0), 2)
+
+for result in results:
+    for keypoints, box in zip(result.keypoints.xy.cpu(), result.boxes):
+        graph_circles_by_person(np.array(keypoints), img)
+        
+        graph_box(box, img)
+    
+
+cv2.imshow("Image", img)
+cv2.waitKey(0)
+
+cv2.destroyAllWindows()
+"""
+
+
+
+
+
+
+# if you want all classes
 yolo_classes = list(model.names.values())
 classes_ids = [yolo_classes.index(clas) for clas in yolo_classes]
 conf = 0.5
